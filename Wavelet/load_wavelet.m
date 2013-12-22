@@ -39,7 +39,7 @@ function wvf=load_wavelet(wavelet,normw)
 % Wavelets specifications are stored in the directory .\Wavelets, each in 
 % a human-readable .wvf file. The syntax of a .wvf file is as follows:
 %   
-% %multiple-line comment 
+% %multiple-line commentï¿½
 % [empty line]
 % %comment(wvf_type)  
 %  wavelet symmetry type
@@ -50,9 +50,9 @@ function wvf=load_wavelet(wavelet,normw)
 %  2.update step = left lift. coecff., right lift. coeff.
 %  ...
 % %comment(filt_H0)
-%  coefficients of the low-pass analysis filter, one per line - delay,value  
+%  coefficients of the low-pass analysis filter, one per line - delay,valueï¿½ï¿½
 % %comment(filt_H1)
-%  coefficients of the high-pass analysis filter, one per line - delay,value  
+%  coefficients of the high-pass analysis filter, one per line - delay,valueï¿½ï¿½
 % %comment(filt_G0 and filt_G1 are not specified, derived from the analysis pair))
 %
 % The zero-delay refers for the low-pass filter to the even samples, while 
@@ -78,7 +78,7 @@ HiD_F = []; HiD_F_delay = [];
 
 %sets the path where the wavelets are stored
 path0=fileparts(which(mfilename));
-waveletfile=[path0 '\Wavelets\' wavelet '.wvf'];
+waveletfile= fullfile(path0, 'Wavelets', [wavelet '.wvf']);
 fid=fopen(waveletfile,'r');
 if fid~=-1 %read the wavelet from .wvf file
     numpar=0;cnt=1;
